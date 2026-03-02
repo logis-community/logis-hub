@@ -14,6 +14,8 @@ export default defineNuxtConfig({
       hashMode: true,
     },
   },
+  components: [{ path: "~/components", extensions: ["vue"] }],
+  css: ["~/assets/style/index.css"],
   vite: {
     plugins: [
       ViteComponents({

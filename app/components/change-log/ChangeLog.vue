@@ -1,11 +1,14 @@
 <template>
   <div class="changelog-container">
     <!-- 组件标题 -->
-    <div class="changelog-title">{{ modelValue.title || '更新日志' }}</div>
+   <slot name="title">
+     <div class="changelog-title">{{ modelValue.title || '更新日志' }}</div>
+   </slot>
 
+  <div v-if="modelValue.description" class="my-5px">{{ modelValue.description }}</div>
     <!-- 日志列表 -->
     <div class="changelog-list">
-      <div v-for="(item, index) in modelValue.items" :key="index" class="changelog-item">
+     <div v-for="(item, index) in modelValue.releases" :key="index" class="changelog-item">
         <!-- 版本信息（含日期） -->
         <div class="version-header" @click="toggleVersion(index)">
           <div class="version-info">

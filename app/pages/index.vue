@@ -1,49 +1,56 @@
 <template>
- <div>
-    <ChangeLogCmp :model-value="changelog" />
+ <div class="w-screen h-screen p-10px">
+    <el-tabs v-model="activeTab" class="w-full h-full">
+      <el-tab-pane v-for="(changelog, i) in changelogs" :key="i" :label="changelog.title" :name="changelog.title">
+        <ChangeLogCmp :model-value="changelog" class="h-full overflow-auto">
+          <template #title>{{ changelog.subtitle }}</template>
+        </ChangeLogCmp>
+      </el-tab-pane>
+    </el-tabs>
   </div>
 </template>
 
 <script setup lang="ts">
-import type { ChangeLog, ChangeLogItem } from '~/components/change-log/index';
-import { ChangeLogCmp } from '~/components/change-log/index';
-
-
-// 示例更新日志数据（可替换为接口返回数据）
-const changelogData = ref<ChangeLogItem[]>([
+import type { ChangeLog } from "~/components/change-log/index";
+import { ChangeLogCmp } from "~/components/change-log/index";
+import { ElMessage } from "element-plus";
+import { ref } from "vue";
+const changelogs = ref<ChangeLog[]>([
   {
-    version: 'v1.2.0',
-    date: '2026-02-27',
-    changes: [
-      { type: 'feat', description: '新增狐狸头图标自定义功能' },
-      { type: 'fix', description: '修复移动端更新日志展示错位问题' },
-      { type: 'perf', description: '优化组件加载速度，减少50%渲染时间' }
-    ]
+    title: "更新日志",
+    releases: [{
+      version: "v0.0.1",
+      date: "2023-01-01",
+      changes: [
+        {
+          type: "feat",
+          description: "Initial release",
+        },
+      ],
+    }]
   },
-  {
-    version: 'v1.1.0',
-    date: '2026-02-20',
-    changes: [
-      { type: 'feat', description: '新增更新日志折叠/展开功能' },
-      { type: 'style', description: '优化版本标签样式，增加最新版本高亮' },
-      { type: 'fix', description: '修复日期格式显示异常的bug' }
-    ]
-  },
-  {
-    version: 'v1.0.0',
-    date: '2026-02-10',
-    changes: [
-      { type: 'feat', description: '初始版本发布，支持基础更新日志展示' },
-      { type: 'docs', description: '完善组件使用文档' }
-    ]
-  }
-])
+]);
 
-const changelog = computed<Partial<ChangeLog>>(() => ({
-  title: "智能仿真大师",
-  subtitle: "版本更新日志",
-  items: changelogData.value
-}))
+const activeTab = ref<string>(changelogs.value.at(0)?.title || "");
+watch(() => changelogs.value, (newVal) => {
+  activeTab.value = newVal.at(0)?.title || "";
+})
+onMounted(() => {
+  fetch("/changelog.json")
+    .then<ChangeLog[]>((res) => res.json())
+    .then((logs) => {
+      changelogs.value = logs
+    })
+    .catch((e) => {
+      ElMessage.error(`获取更新日志失败：${e}`);
+    });
+})
 </script>
 
-<style scoped></style>
+<style scoped>
+:deep(.el-tabs__content) {
+  overflow: auto;
+}
+</style>
+
+

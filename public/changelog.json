@@ -1,0 +1,36 @@
+[
+  {
+    "title": "智能仿真大师",
+    "description": "",
+    "releases": [
+      {
+        "version": "3.2.2.1",
+        "date": "2026-03-02",
+        "changes": [
+          {
+            "type": "feat",
+            "description": "开放仿真后台管理系统"
+          }
+        ]
+      },
+      {
+        "version": "3.2.2.0",
+        "date": "2026-01-01",
+        "changes": [
+          {
+            "type": "feat",
+            "description": "仿真报告新增生产相关指标，主要包含：成产节拍、产能利用率、产线作业时长等"
+          },
+          {
+            "type": "perf",
+            "description": "仿真报告按照资源池、任务类型维度，分别展示相关指标"
+          },
+          {
+            "type": "feat",
+            "description": "仿真报告新增运行时长、仿真起止时间等指标"
+          }
+        ]
+      }
+    ]
+  }
+]
