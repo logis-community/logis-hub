@@ -8,6 +8,7 @@ export default defineNuxtConfig({
   app: {
     // baseURL: ".",
   },
+  nitro: {},
   router: {
     options: {
       hashMode: true,

@@ -11,6 +11,9 @@ importers:
       '@imengyu/vue3-context-menu':
         specifier: ^1.5.2
         version: 1.5.2
+      '@ipa-schema/api':
+        specifier: ^0.0.13
+        version: 0.0.13
       '@nuxt/eslint':
         specifier: 1.10.0
         version: 1.10.0(@typescript-eslint/utils@8.46.3(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3))(@vue/compiler-sfc@3.5.27)(eslint@9.39.1(jiti@2.6.1))(magicast@0.5.1)(typescript@5.9.3)(vite@7.3.1(@types/node@24.10.1)(jiti@2.6.1)(sass-embedded@1.93.3)(sass@1.93.3)(terser@5.44.0)(yaml@2.8.2))
@@ -887,6 +890,9 @@ packages:
 
   '@ioredis/commands@1.5.0':
     resolution: {integrity: sha512-eUgLqrMf8nJkZxT24JvVRrQya1vZkQh8BBeYNwGDqa5I0VUi8ACx7uFvAaLxintokpTenkK6DASvo/bvNbBGow==}
+
+  '@ipa-schema/api@0.0.13':
+    resolution: {integrity: sha512-+ikdLkd0d534L1++PCEXWInKU2AKlI9VglmY7Hs9+Sx1/hOUcC9TjK2zO8Jt1I976iaYdIsir8Sy6Ks7HXLKTQ==}
 
   '@isaacs/balanced-match@4.0.1':
     resolution: {integrity: sha512-yzMTt9lEb8Gv7zRioUilSglI0c0smZ9k5D65677DLWLtWJaXIS3CqcGyUFByYKlnUj6TkjLVs54fBl6+TiGQDQ==}
@@ -6825,6 +6831,8 @@ snapshots:
       vue-i18n: 11.1.12(vue@3.5.27(typescript@5.9.3))
 
   '@ioredis/commands@1.5.0': {}
+
+  '@ipa-schema/api@0.0.13': {}
 
   '@isaacs/balanced-match@4.0.1': {}
 

@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "@imengyu/vue3-context-menu": "^1.5.2",
+    "@ipa-schema/api": "^0.0.13",
     "@nuxt/eslint": "1.10.0",
     "@nuxt/icon": "2.1.0",
     "@nuxt/image": "1.11.0",
