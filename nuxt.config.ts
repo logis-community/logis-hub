@@ -8,6 +8,12 @@ export default defineNuxtConfig({
   app: {
     // baseURL: ".",
   },
+  runtimeConfig: {
+    public: {},
+    app: {},
+    myApiSecret: "123456",
+  },
+  $env: {},
   nitro: {},
   router: {
     options: {

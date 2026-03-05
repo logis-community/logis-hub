@@ -20,3 +20,4 @@ always use the latest version of Nuxt
 ## TODO
 
 - [ ] global error handler at server side
+- [ ] make `.env.*` available to prisma
